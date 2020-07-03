@@ -1,8 +1,55 @@
-# asdf
+const inquirer = require("inquirer");
+const fs = require("fs");
+const questions = [
+  {
+    type: "input",
+    name: "title",
+    message: "What is the title of your project?",
+  },
+  {
+    type: "input",
+    name: "description",
+    message: "Enter a description of your project.",
+  },
+  {
+    type: "input",
+    name: "installation",
+    message: "What are the installation instructions for your project?",
+  },
+  {
+    type: "input",
+    name: "usage",
+    message: "What is the usage information for your project?",
+  },
+  {
+    type: "input",
+    name: "contributing",
+    message: "What are the contribution guidelines for your project?",
+  },
+  {
+    type: "input",
+    name: "tests",
+    message: "What are the test instructions for your project?",
+  },
+  {
+    type: "input",
+    name: "github",
+    message: "Enter your GitHub username.",
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "Enter your e-mail address.",
+  },
+  // add remaining questions
+];
+
+inquirer.prompt(questions).then(function (data) {
+const readme = `# ${data.title}
 
 ## Description 
 
-asdff
+${data.description}
 
 ## Table of Contents
 
@@ -14,15 +61,15 @@ asdff
 
 ## Installation
 
-sadf
+${data.installation}
 
 ## Usage 
 
-asdf
+${data.usage}
 
 ## Contributing
 
-asdf
+${data.contributing}
 
 
 ## License
@@ -47,13 +94,23 @@ If you created an application or package and would like other developers to cont
 
 ## Tests
 
-asdf
+${data.tests}
 
 
 ## Questions
 
-asdf
-asdf
+${data.github}\n${data.email}
 
 ---
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+`;
+
+fs.writeFile("README.md", readme, function(err) {
+  if (err) {
+    return console.log(err);
+  }
+
+  console.log("README was generated!")
+});
+
+});
