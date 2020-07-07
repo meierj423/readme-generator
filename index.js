@@ -30,14 +30,7 @@ const questions = [
     type: "list",
     message: "Which license would you like to use for your application?",
     name: "license",
-    choices: [
-      "AGPLv3",
-      "GPLv3",
-      "LGPLv3",
-      "Mozilla",
-      "Apache",
-      "MIT",
-    ],
+    choices: ["AGPLv3", "GPLv3", "LGPLv3", "Mozilla", "Apache", "MIT"],
   },
   {
     type: "input",
@@ -73,7 +66,6 @@ ${data.description}
 * [Contributing](#contributing)
 * [License](#license)
 
-
 ## Installation
 
 ${data.installation}
@@ -82,20 +74,17 @@ ${data.installation}
 
 ${data.usage}
 
-## Contributing
-
-${data.contributing}
-
-
 ## License
 
 This application is covered under the ${data.license} license.
 
+## Contributing
+
+${data.contributing}
 
 ## Tests
 
 ${data.tests}
-
 
 ## Questions
 
